@@ -30,7 +30,7 @@ public class NameInverter {
             }
 
             if (string.equalsIgnoreCase("Mr.") || string.equalsIgnoreCase("Mrs.") || string.equalsIgnoreCase("Phd.")) {
-                stringBuilder.append(" ").append(string);
+                stringBuilder.append(stringBuilder.length() > 0 ? " " : "").append(string);
             } else if (!hasFirstName) {
                 stringBuilder.insert(0, stringBuilder.length() > 0 ? " " : "").insert(0, string);
                 hasFirstName = true;
