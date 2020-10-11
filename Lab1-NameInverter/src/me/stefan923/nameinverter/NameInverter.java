@@ -16,7 +16,7 @@ public class NameInverter {
             return null;
 
         if (name.equals(""))
-            return null;
+            return "";
 
         String[] args = name.split(" ");
         if (args.length == 1)
