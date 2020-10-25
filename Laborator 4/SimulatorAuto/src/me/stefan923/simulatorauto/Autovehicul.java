@@ -9,6 +9,8 @@ public class Autovehicul {
     private String marca;
     private Color culoare;
 
+    private Sofer sofer;
+
     private int viteza;
     private int treaptaViteza;
     private int vitezaMax;
@@ -103,5 +105,13 @@ public class Autovehicul {
     public double getKmParcursi() {
         calcKmParcursi();
         return kmParcursi;
+    }
+
+    public Sofer getSofer() {
+        return sofer;
+    }
+
+    public void setSofer(Sofer sofer) {
+        this.sofer = sofer;
     }
 }

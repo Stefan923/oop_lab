@@ -10,6 +10,7 @@ public class SimulatorAuto {
 
     public static void main(String[] args) {
         Autovehicul autovehicul = new Autovehicul("Volvo", Color.LIGHT_GRAY, 280);
+        autovehicul.setSofer(new Sofer("Popescu", "Stefan", 20, 12345678));
 
         simulare(autovehicul);
     }
