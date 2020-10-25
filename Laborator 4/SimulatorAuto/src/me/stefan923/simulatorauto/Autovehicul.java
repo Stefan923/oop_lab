@@ -4,6 +4,8 @@ import java.awt.*;
 
 public class Autovehicul {
 
+    public final static int nrLocuri = 4;
+
     private String marca;
     private Color culoare;
 
@@ -60,6 +62,10 @@ public class Autovehicul {
     }
 
     public void setTreaptaViteza(int treaptaViteza) {
+        this.treaptaViteza = treaptaViteza;
+    }
+
+    public void setTreaptaViteza(short treaptaViteza) {
         this.treaptaViteza = treaptaViteza;
     }
 
