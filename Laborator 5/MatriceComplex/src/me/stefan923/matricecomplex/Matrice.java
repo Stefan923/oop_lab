@@ -130,4 +130,18 @@ public class Matrice {
 
         return result;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (int i = 0; i < lines; i++) {
+            for (int j = 0; j < columns; j++) {
+                stringBuilder.append(values[i][j].toString()).append(", ");
+            }
+            stringBuilder.append("\n");
+        }
+
+        return stringBuilder.toString();
+    }
 }
