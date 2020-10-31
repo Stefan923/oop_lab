@@ -48,7 +48,7 @@ public class Complex {
     }
 
     public String toString() {
-        return a + " + i * " + b;
+        return a + " + i*" + b;
     }
 
 }
