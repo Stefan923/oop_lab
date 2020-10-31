@@ -137,7 +137,7 @@ public class Matrice {
 
         for (int i = 0; i < lines; i++) {
             for (int j = 0; j < columns; j++) {
-                stringBuilder.append(values[i][j].toString()).append(", ");
+                stringBuilder.append(values[i][j].toString()).append((j < columns - 1) ? ", " : "");
             }
             stringBuilder.append("\n");
         }
