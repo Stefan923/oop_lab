@@ -136,7 +136,7 @@ public class StreamsLambda {
         list.add(new Employee("George", 25, 4500.10));
         list.add(new Employee("Elena", 25, 500.39));
 
-        System.out.println("10. " + list.stream().mapToDouble(Employee::getSalary).sum());
+        System.out.println("10. " + list.stream().mapToDouble(Employee::getSalary).average().getAsDouble());
     }
 
     public static void ex11() {
