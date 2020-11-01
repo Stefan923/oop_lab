@@ -1,7 +1,5 @@
 package me.stefan923.matricecomplex;
 
-import java.util.Arrays;
-
 public class Matrice {
 
     private final int lines;
