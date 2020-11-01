@@ -26,6 +26,7 @@ public class SimulareMatrice {
 
         System.out.println("Matricea A:\n" + a.toString());
         System.out.println("Matricea B:\n" + b.toString());
+        System.out.println("Matricea C:\n" + c.toString());
         System.out.println("Matricea A + B:\n" + a.add(b).toString());
         System.out.println("Matricea A - B:\n" + a.subtract(b).toString());
         System.out.println("Matricea A * 5:\n" + a.multiply(5).toString());
