@@ -23,11 +23,13 @@ public class Ghiozdan {
     }
 
     public void listManual() {
-        System.out.println("Manuale: " + rechizite.stream().filter(rechizita -> rechizita instanceof Manual));
+        System.out.println("Manuale: ");
+        rechizite.stream().filter(rechizita -> rechizita instanceof Manual).forEach(rechizita -> System.out.println(" - " + rechizita.getName()));
     }
 
     public void listCaiet() {
-        System.out.println("Caiete: " + rechizite.stream().filter(rechizita -> rechizita instanceof Caiet));
+        System.out.println("Caiete: ");
+        rechizite.stream().filter(rechizita -> rechizita instanceof Caiet).forEach(rechizita -> System.out.println(" - " + rechizita.getName()));
     }
 
     public int getNrRechizite() {
