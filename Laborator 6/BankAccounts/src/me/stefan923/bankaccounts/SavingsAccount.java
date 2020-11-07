@@ -9,11 +9,11 @@ public class SavingsAccount extends Account {
         interest = 0.0d;
     }
 
-    private void setInterest(double interest) {
+    public void setInterest(double interest) {
         this.interest = interest;
     }
 
-    private double getInterest() {
+    public double getInterest() {
         return interest;
     }
 
