@@ -36,7 +36,7 @@ public class Account {
         return balance;
     }
 
-    public double getAccountNumber() {
+    public int getAccountNumber() {
         return number;
     }
 
