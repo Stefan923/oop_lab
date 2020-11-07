@@ -1,6 +1,7 @@
 package me.stefan923.bankaccounts;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class Bank {
 
@@ -60,6 +61,13 @@ public class Bank {
         } else {
             System.out.println("Nu exista niciun cont cu numarul \"" + number + "\".");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Bank accounts: "
+                + accounts.size()
+                + accounts.stream().map(Account::toString).collect(Collectors.joining("\n - ", "\n - ", ""));
     }
 
 }
