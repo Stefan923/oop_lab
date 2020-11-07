@@ -30,19 +30,28 @@ public class Bank {
         });
     }
 
-    public void openAccount() {
-        accounts.add(new Account(id));
+    public Account openAccount() {
+        Account account = new Account(id);
+        accounts.add(account);
         System.out.println("A fost deschis un nou cont cu numarul \"" + id++ + "\".");
+
+        return account;
     }
 
-    public void openSavingsAccount() {
-        accounts.add(new Account(id));
+    public SavingsAccount openSavingsAccount() {
+        SavingsAccount account = new SavingsAccount(id);
+        accounts.add(account);
         System.out.println("A fost deschis un nou cont cu numarul \"" + id++ + "\".");
+
+        return account;
     }
 
-    public void openCurrentAccount() {
-        accounts.add(new Account(id));
+    public CurrentAccount openCurrentAccount() {
+        CurrentAccount account = new CurrentAccount(id);
+        accounts.add(account);
         System.out.println("A fost deschis un nou cont cu numarul \"" + id++ + "\".");
+
+        return account;
     }
 
     public void closeAccount(int number) {
