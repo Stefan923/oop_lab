@@ -17,8 +17,9 @@ public class SavingsAccount extends Account {
         return interest;
     }
 
-    private void addInterest() {
-        deposit(getBalance() * interest);
+    @Override
+    public void deposit(double sum) {
+        super.deposit(sum + sum * interest);
     }
 
 }
