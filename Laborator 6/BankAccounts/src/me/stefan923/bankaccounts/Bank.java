@@ -24,7 +24,7 @@ public class Bank {
         accounts.forEach(account -> {
             if (account instanceof SavingsAccount) {
                 ((SavingsAccount) account).addInterest();
-            } else if (account instanceof CurrentAccount && ((CurrentAccount) account).getOverdraft() < 0) {
+            } else if (account instanceof CurrentAccount && account.getBalance() < 0) {
                 System.out.println(account.getAccountNumber() + " is in overdraft. (balance: " + account.getBalance() + ")");
             }
         });
