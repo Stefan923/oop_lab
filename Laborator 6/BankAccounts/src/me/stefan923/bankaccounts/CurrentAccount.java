@@ -14,7 +14,11 @@ public class CurrentAccount extends Account {
     }
 
     public void setOverdraft(double overdraft) {
-        this.overdraft = overdraft;
+        if (overdraft <= 0.0d) {
+            this.overdraft = overdraft;
+        } else {
+            System.err.println("CurrentAccount.setOverdraft(...): cannot set a positive overdraft limit.");
+        }
     }
 
     @Override
