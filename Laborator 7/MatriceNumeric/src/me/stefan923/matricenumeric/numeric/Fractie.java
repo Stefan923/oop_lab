@@ -41,7 +41,7 @@ public class Fractie implements Numeric {
 
         Fractie fractie = (Fractie) numeric;
         if (b != fractie.getB()) {
-            throw new IllegalArgumentException("The denominators of the two fractions are not equal.");
+            return new Fractie(a * fractie.b + fractie.a * b, b * fractie.b);
         }
 
         return new Fractie(a + fractie.a, b);
@@ -58,7 +58,7 @@ public class Fractie implements Numeric {
 
         Fractie fractie = (Fractie) numeric;
         if (b != fractie.getB()) {
-            throw new IllegalArgumentException("The denominators of the two fractions are not equal.");
+            return new Fractie(a * fractie.b - fractie.a * b, b * fractie.b);
         }
 
         return new Fractie(a - fractie.a, b);
@@ -86,4 +86,5 @@ public class Fractie implements Numeric {
     public String toString() {
         return a + " / " + b;
     }
+
 }
