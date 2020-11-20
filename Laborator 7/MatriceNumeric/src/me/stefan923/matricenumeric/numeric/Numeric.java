@@ -8,4 +8,6 @@ public interface Numeric {
 
     public Numeric multiply(Numeric numeric);
 
+    public Numeric multiply(double scalar);
+
 }
