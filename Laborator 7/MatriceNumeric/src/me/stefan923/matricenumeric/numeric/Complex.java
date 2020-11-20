@@ -29,7 +29,10 @@ public class Complex implements Numeric {
     @Override
     public Numeric add(Numeric numeric) {
         if (!(numeric instanceof Complex)) {
-            throw new IllegalArgumentException("The object is not an instance of me.stefan923.matricenumeric.numeric.Complex.");
+            Fractie fractie = (Fractie) numeric;
+            double value = fractie.getA() / fractie.getB();
+
+            return new Complex(a + value, b);
         }
 
         Complex complex = (Complex) numeric;
@@ -39,7 +42,10 @@ public class Complex implements Numeric {
     @Override
     public Numeric subtract(Numeric numeric) {
         if (!(numeric instanceof Complex)) {
-            throw new IllegalArgumentException("The object is not an instance of me.stefan923.matricenumeric.numeric.Complex.");
+            Fractie fractie = (Fractie) numeric;
+            double value = fractie.getA() / fractie.getB();
+
+            return new Complex(a - value, b);
         }
 
         Complex complex = (Complex) numeric;
@@ -49,10 +55,23 @@ public class Complex implements Numeric {
     @Override
     public Numeric multiply(Numeric numeric) {
         if (!(numeric instanceof Complex)) {
-            throw new IllegalArgumentException("The object is not an instance of me.stefan923.matricenumeric.numeric.Complex.");
+            Fractie fractie = (Fractie) numeric;
+            double value = fractie.getA() / fractie.getB();
+
+            return new Complex(a * value, b * value);
         }
 
         Complex complex = (Complex) numeric;
         return new Complex(a * complex.a - b * complex.b, a * complex.a + b * complex.b);
+    }
+
+    @Override
+    public Numeric multiply(double scalar) {
+        return new Complex(a * scalar, b * scalar);
+    }
+
+    @Override
+    public String toString() {
+        return a + " + i*" + b;
     }
 }

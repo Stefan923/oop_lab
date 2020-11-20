@@ -2,20 +2,19 @@ package me.stefan923.matricenumeric.numeric;
 
 public class Fractie implements Numeric {
 
-    private int a;
-    private int b; /* privat pentru ca vrem sa restrictionam valorile
-                      lui b la [MIN_INT, 0) U (0, MAX_INT] */
+    private double a;
+    private double b;
 
-    public Fractie(int a, int b) {
+    public Fractie(double a, double b) {
         this.a = a;
         this.b = b;
     }
 
-    public int getA() {
+    public double getA() {
         return a;
     }
 
-    public int getB() {
+    public double getB() {
         return b;
     }
 
@@ -34,7 +33,10 @@ public class Fractie implements Numeric {
     @Override
     public Numeric add(Numeric numeric) {
         if (!(numeric instanceof Fractie)) {
-            throw new IllegalArgumentException("The object is not an instance of me.stefan923.matricenumeric.numeric.Fractie.");
+            double value = a / b;
+            Complex complex = (Complex) numeric;
+
+            return new Complex(value + complex.getA(), complex.getB());
         }
 
         Fractie fractie = (Fractie) numeric;
@@ -48,7 +50,10 @@ public class Fractie implements Numeric {
     @Override
     public Numeric subtract(Numeric numeric) {
         if (!(numeric instanceof Fractie)) {
-            throw new IllegalArgumentException("The object is not an instance of me.stefan923.matricenumeric.numeric.Fractie.");
+            double value = a / b;
+            Complex complex = (Complex) numeric;
+
+            return new Complex(value - complex.getA(), - complex.getB());
         }
 
         Fractie fractie = (Fractie) numeric;
@@ -62,10 +67,23 @@ public class Fractie implements Numeric {
     @Override
     public Numeric multiply(Numeric numeric) {
         if (!(numeric instanceof Fractie)) {
-            throw new IllegalArgumentException("The object is not an instance of me.stefan923.matricenumeric.numeric.Fractie.");
+            double value = a / b;
+            Complex complex = (Complex) numeric;
+
+            return new Complex(value * complex.getA(), value * complex.getB());
         }
 
         Fractie fractie = (Fractie) numeric;
         return new Fractie(a * fractie.a, b * fractie.b);
+    }
+
+    @Override
+    public Numeric multiply(double scalar) {
+        return new Fractie(a * scalar, b);
+    }
+
+    @Override
+    public String toString() {
+        return a + " / " + b;
     }
 }
