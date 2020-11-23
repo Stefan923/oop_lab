@@ -19,6 +19,7 @@ public class JocDeSah {
     public static void main(String[] args) {
         initTable();
 
+        commandList();
         Scanner scanner = new Scanner(System.in);
         String command = "";
 
