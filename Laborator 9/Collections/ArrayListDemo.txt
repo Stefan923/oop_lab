@@ -1,0 +1,11 @@
+Almost all collections in Java are derived from the java.util.Collection interface.
+Collection defines the basic parts of all collections. The interface states the add() and remove()
+methods for adding to and removing from a collection respectively. Also required is the toArray()
+method, which converts the collection into a simple array of all the elements in the collection.
+Finally, the contains() method checks if a specified element is in the collection. The Collection interface is
+a subinterface of java.lang.Iterable, so any Collection may be the target of a for-each statement.
+(The Iterable interface provides the iterator() method used by for-each statements.) All collections have an
+iterator that goes through all of the elements in the collection. Additionally, Collection is a generic.
+Any collection can be written to store any class. For example, Collection<String> can hold strings, and the elements from
+the collection can be used as strings without any casting required.[10] Note that the angled brackets < > can hold a type
+argument that specifies which type the collection holds.
