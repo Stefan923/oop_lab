@@ -10,7 +10,7 @@ public class ImageMemoryModel {
     private int score = 0;
 
     private int size;
-    private Card[][] board;
+    private Card[][] gameBoard;
 
     public ImageMemoryModel(int size) {
         this.size = size;
@@ -18,16 +18,15 @@ public class ImageMemoryModel {
     }
 
     private void generateBoard() {
-        board = new Card[size][size];
+        gameBoard = new Card[size][size];
         int numCards = size * size;
 
         List<Card> cards = new ArrayList<>();
-        while (numCards > 0) {
-            int id = getRandomNumber(0, size / 2);
-            if (cards.stream().filter(card -> card.getId() == id).count() == 0) {
+        for (int i = 0; i < numCards; i++) {
+            int id = getRandomNumber(0, numCards / 2);
+            if (cards.stream().noneMatch(card -> card.getId() == id)) {
                 cards.add(new Card(id, null));
                 cards.add(new Card(id, null));
-                numCards++;
             }
         }
 
@@ -35,7 +34,7 @@ public class ImageMemoryModel {
 
         for (int i = 0; i < size; i++)
             for (int j = 0; j < size; j++)
-                board[i][j] = cards.remove(0);
+                gameBoard[i][j] = cards.remove(0);
     }
 
     private int getRandomNumber(int min, int max) {
@@ -47,6 +46,10 @@ public class ImageMemoryModel {
 
     public int getSize() {
         return size;
+    }
+
+    public Card[][] getGameBoard() {
+        return gameBoard;
     }
 
     public int getScore() {
