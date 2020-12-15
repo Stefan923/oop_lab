@@ -45,6 +45,10 @@ public class ImageMemoryModel {
                         .getAsInt();
     }
 
+    public int getSize() {
+        return size;
+    }
+
     public int getScore() {
         return score;
     }
