@@ -1,5 +1,10 @@
 package me.stefan923.memorygame.game;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -23,10 +28,15 @@ public class ImageMemoryModel {
 
         List<Card> cards = new ArrayList<>();
         for (int i = 0; i < numCards; i++) {
-            int id = getRandomNumber(0, numCards / 2);
+            int id = getRandomNumber(1, 24);
             if (cards.stream().noneMatch(card -> card.getId() == id)) {
-                cards.add(new Card(id, null));
-                cards.add(new Card(id, null));
+                try {
+                    ImageIcon buttonIcon = new ImageIcon(ImageIO.read(getClass().getResource("/" + id + ".png")));
+                    cards.add(new Card(id, buttonIcon));
+                    cards.add(new Card(id, buttonIcon));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
 
