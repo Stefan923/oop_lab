@@ -12,6 +12,10 @@ public class Card {
         this.imageIcon = imageIcon;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public ImageIcon getImageIcon() {
         return imageIcon;
     }
