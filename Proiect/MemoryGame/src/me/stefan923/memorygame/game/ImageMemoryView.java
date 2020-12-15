@@ -32,7 +32,7 @@ public class ImageMemoryView extends JFrame {
         boardPanel.setLayout(new GridLayout(gameBoard.length, gameBoard.length));
 
         for (int i = 0; i < gameBoard.length; ++i) {
-            for (int j = 0; j < gameBoard[j].length; ++j) {
+            for (int j = 0; j < gameBoard[i].length; ++j) {
                 JButton button = new JButton(gameBoard[i][j].getImageIcon());
                 button.setContentAreaFilled(false);
                 boardPanel.add(button);
