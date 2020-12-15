@@ -8,6 +8,8 @@ public class ImageMemoryMVC {
         ImageMemoryModel model = new ImageMemoryModel(size);
         ImageMemoryView view = new ImageMemoryView(model);
         ImageMemoryController controller = new ImageMemoryController(model, view);
+
+        view.setVisible(true);
     }
 
 }
