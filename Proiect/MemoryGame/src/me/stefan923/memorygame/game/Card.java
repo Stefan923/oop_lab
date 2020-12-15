@@ -1,4 +1,4 @@
-package me.stefan923.memorygame;
+package me.stefan923.memorygame.game;
 
 import javax.swing.*;
 

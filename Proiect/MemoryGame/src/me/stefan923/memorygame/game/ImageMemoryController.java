@@ -1,4 +1,4 @@
-package me.stefan923.memorygame;
+package me.stefan923.memorygame.game;
 
 public class ImageMemoryController {
 
