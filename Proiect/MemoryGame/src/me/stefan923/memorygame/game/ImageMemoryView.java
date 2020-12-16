@@ -63,6 +63,10 @@ public class ImageMemoryView extends JFrame {
         return boardPanel;
     }
 
+    public void setFieldScore(int score) {
+        fieldScore.setText(String.valueOf(score));
+    }
+
     public HashMap<String, JButton> getBtnCards() {
         return btnCards;
     }
