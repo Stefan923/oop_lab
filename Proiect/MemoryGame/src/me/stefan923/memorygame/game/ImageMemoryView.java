@@ -46,8 +46,6 @@ public class ImageMemoryView extends JFrame {
         this.pack();
 
         this.setTitle("Memory Game");
-
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     private void loadBoardGame() {
