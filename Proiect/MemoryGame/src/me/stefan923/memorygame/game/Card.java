@@ -8,6 +8,7 @@ public class Card {
     private final ImageIcon imageIcon;
 
     private boolean turned = false;
+    private boolean solved = false;
 
     public Card(int id, ImageIcon imageIcon) {
         this.id = id;
@@ -24,6 +25,10 @@ public class Card {
 
     public boolean isTurned() {
         return turned;
+    }
+
+    public boolean isSolved() {
+        return solved;
     }
 
     public void setTurned() {
