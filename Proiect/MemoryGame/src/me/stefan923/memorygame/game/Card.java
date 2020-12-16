@@ -10,6 +10,8 @@ public class Card {
     private boolean turned = false;
     private boolean solved = false;
 
+    private int score = 100; // initial score for any card
+
     public Card(int id, ImageIcon imageIcon) {
         this.id = id;
         this.imageIcon = imageIcon;
@@ -37,6 +39,16 @@ public class Card {
 
     public void setSolved() {
         this.solved = !solved;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void decreaseScore() {
+        if (score >= 10) {
+            score -= 5;
+        }
     }
 
     @Override
