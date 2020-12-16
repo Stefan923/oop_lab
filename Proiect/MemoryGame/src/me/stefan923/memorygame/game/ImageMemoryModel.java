@@ -36,7 +36,7 @@ public class ImageMemoryModel {
         int numCards = size * size;
 
         List<Card> cards = new ArrayList<>();
-        for (int i = 0; i < numCards; i++) {
+        while (cards.size() < numCards) {
             int id = getRandomNumber(1, 24);
             if (cards.stream().noneMatch(card -> card.getId() == id)) {
                 try {
