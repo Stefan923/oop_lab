@@ -7,6 +7,8 @@ public class Card {
     private final int id;
     private final ImageIcon imageIcon;
 
+    private boolean turned = false;
+
     public Card(int id, ImageIcon imageIcon) {
         this.id = id;
         this.imageIcon = imageIcon;
@@ -18,6 +20,14 @@ public class Card {
 
     public ImageIcon getImageIcon() {
         return imageIcon;
+    }
+
+    public boolean isTurned() {
+        return turned;
+    }
+
+    public void setTurned() {
+        this.turned = !turned;
     }
 
     @Override
