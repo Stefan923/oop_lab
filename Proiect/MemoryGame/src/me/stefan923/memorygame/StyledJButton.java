@@ -1,4 +1,4 @@
-package me.stefan923.memorygame.game;
+package me.stefan923.memorygame;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
