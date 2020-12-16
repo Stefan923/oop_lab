@@ -13,6 +13,7 @@ public class ImageMemoryView extends JFrame {
 
     JButton btnRetry = new StyledJButton("Retry").getButton();
     HashMap<String, JButton> btnCards = new HashMap<>();
+    JPanel panelBoard;
 
     public ImageMemoryView(ImageMemoryModel model) {
         this.model = model;
@@ -30,9 +31,11 @@ public class ImageMemoryView extends JFrame {
         fieldScore.setText(String.valueOf(model.getScore()));
         fieldScore.setEditable(false);
 
+        panelBoard = gameBoardToJPanel();
+
         JPanel content = new JPanel();
         content.setLayout(new FlowLayout());
-        content.add(gameBoardToJPanel());
+        content.add(panelBoard);
         content.add(rightPanel);
 
         this.setContentPane(content);
@@ -75,6 +78,14 @@ public class ImageMemoryView extends JFrame {
         for (JButton jButton : btnCards.values()) {
             jButton.addActionListener(actionListener);
         }
+    }
+
+    public void reset() {
+        setFieldScore(model.getScore());
+        getBtnCards().clear();
+        panelBoard.removeAll();
+
+        panelBoard = gameBoardToJPanel();
     }
 
 }
