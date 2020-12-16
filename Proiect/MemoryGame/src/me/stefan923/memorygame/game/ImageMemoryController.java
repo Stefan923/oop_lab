@@ -14,6 +14,7 @@ public class ImageMemoryController {
         this.view = view;
 
         view.addCardsListener(new CardTurnListener());
+        view.addResetListener(new ResetListener());
     }
 
     class CardTurnListener implements ActionListener {
@@ -75,6 +76,17 @@ public class ImageMemoryController {
                     e.printStackTrace();
                 }
             }).start();
+        }
+
+    }
+
+    class ResetListener implements ActionListener {
+
+        public void actionPerformed(ActionEvent e) {
+            model.reset();
+            view.reset();
+
+            view.addCardsListener(new CardTurnListener());
         }
 
     }
