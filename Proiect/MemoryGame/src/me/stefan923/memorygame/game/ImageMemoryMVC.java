@@ -2,9 +2,7 @@ package me.stefan923.memorygame.game;
 
 public class ImageMemoryMVC {
 
-    public ImageMemoryMVC() {
-        int size = 4;
-
+    public ImageMemoryMVC(int size) {
         ImageMemoryModel model = new ImageMemoryModel(size);
         ImageMemoryView view = new ImageMemoryView(model);
         ImageMemoryController controller = new ImageMemoryController(model, view);
