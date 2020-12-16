@@ -54,8 +54,6 @@ public class ImageMemoryController {
                 model.getTurnedCard().setTurned();
                 model.setTurnedCard(null, null);
             }
-
-            System.out.println(command);
         }
 
         private void revertChanges(JButton btnCard1, JButton btnCard2) {
