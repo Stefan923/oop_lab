@@ -35,6 +35,10 @@ public class Card {
         this.turned = !turned;
     }
 
+    public void setSolved() {
+        this.solved = !solved;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o)
