@@ -2,11 +2,9 @@ package me.stefan923.memorygame.game;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class ImageMemoryModel {
 
@@ -34,10 +32,11 @@ public class ImageMemoryModel {
     private void generateBoard() {
         gameBoard = new Card[size][size];
         int numCards = size * size;
+        int iconsCount = getIconsCount();
 
         List<Card> cards = new ArrayList<>();
         while (cards.size() < numCards) {
-            int id = getRandomNumber(1, 24);
+            int id = getRandomNumber(1, iconsCount);
             if (cards.stream().noneMatch(card -> card.getId() == id)) {
                 try {
                     ImageIcon buttonIcon = new ImageIcon(ImageIO.read(getClass().getResource("/cards/" + id + ".png"))
@@ -55,6 +54,10 @@ public class ImageMemoryModel {
         for (int i = 0; i < size; i++)
             for (int j = 0; j < size; j++)
                 gameBoard[i][j] = cards.remove(0);
+    }
+
+    private int getIconsCount() {
+        return Objects.requireNonNull(new File("resources/cards").listFiles()).length;
     }
 
     private int getRandomNumber(int min, int max) {
