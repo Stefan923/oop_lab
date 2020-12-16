@@ -28,6 +28,7 @@ public class ImageMemoryController {
             int j = Integer.parseInt(indexes[1]);
 
             Card card = model.getGameBoard()[i][j];
+            Card lastCard = model.getTurnedCard();
             JButton btnCard = view.getBtnCards().get(command);
             if (card.isSolved() || wait) {
                 return;
@@ -35,23 +36,28 @@ public class ImageMemoryController {
             if (card.isTurned()) {
                 btnCard.setIcon(ImageMemoryModel.INITIAL_BTN_ICON);
                 card.setTurned();
+                card.decreaseScore();
                 model.setTurnedCard(null, null);
-            } else if (model.getTurnedCard() == null) {
+            } else if (lastCard == null) {
                 btnCard.setIcon(card.getImageIcon());
                 card.setTurned();
                 model.setTurnedCard(card, btnCard);
-            } else if (model.getTurnedCard().equals(card)) {
+            } else if (lastCard.equals(card)) {
                 btnCard.setIcon(card.getImageIcon());
 
                 card.setTurned();
                 card.setSolved();
-                model.getTurnedCard().setSolved();
+                lastCard.setSolved();
                 model.setTurnedCard(null, null);
+                model.addScore(card.getScore() + lastCard.getScore());
+                view.setFieldScore(model.getScore());
             } else {
                 btnCard.setIcon(card.getImageIcon());
 
                 revertChanges(btnCard, model.getBtnTurnedCard());
-                model.getTurnedCard().setTurned();
+                card.decreaseScore();
+                lastCard.setTurned();
+                lastCard.decreaseScore();
                 model.setTurnedCard(null, null);
             }
         }
@@ -70,6 +76,7 @@ public class ImageMemoryController {
                 }
             }).start();
         }
+
     }
 
 }
