@@ -13,7 +13,7 @@ public class ImageMemoryModel {
     private int score = 0;
 
     private final int size;
-    private int cntTurnedCards;
+    private Card turnedCard;
     private Card[][] gameBoard;
 
     public static ImageIcon INITIAL_BTN_ICON;
@@ -67,12 +67,12 @@ public class ImageMemoryModel {
         return size;
     }
 
-    public int getCntTurnedCards() {
-        return cntTurnedCards;
+    public Card getTurnedCard() {
+        return turnedCard;
     }
 
-    public void setCntTurnedCards(int cntTurnedCards) {
-        this.cntTurnedCards = cntTurnedCards;
+    public void setTurnedCard(Card turnedCard) {
+        this.turnedCard = turnedCard;
     }
 
     public Card[][] getGameBoard() {
