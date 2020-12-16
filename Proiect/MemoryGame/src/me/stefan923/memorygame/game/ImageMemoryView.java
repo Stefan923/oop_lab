@@ -50,7 +50,7 @@ public class ImageMemoryView extends JFrame {
 
         for (int i = 0; i < gameBoard.length; ++i) {
             for (int j = 0; j < gameBoard[i].length; ++j) {
-                JButton button = new JButton(gameBoard[i][j].getImageIcon());
+                JButton button = new JButton(ImageMemoryModel.INITIAL_BTN_ICON);
 
                 button.setContentAreaFilled(false);
                 button.setActionCommand(i + "|" + j);
