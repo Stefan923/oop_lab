@@ -1,5 +1,7 @@
 package me.stefan923.memorygame.game;
 
+import me.stefan923.memorygame.StyledJButton;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
