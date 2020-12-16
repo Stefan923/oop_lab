@@ -14,6 +14,7 @@ public class ImageMemoryModel {
 
     private final int size;
     private Card turnedCard;
+    private JButton btnTurnedCard;
     private Card[][] gameBoard;
 
     public static ImageIcon INITIAL_BTN_ICON;
@@ -71,8 +72,13 @@ public class ImageMemoryModel {
         return turnedCard;
     }
 
-    public void setTurnedCard(Card turnedCard) {
+    public JButton getBtnTurnedCard() {
+        return btnTurnedCard;
+    }
+
+    public void setTurnedCard(Card turnedCard, JButton btnTurnedCard) {
         this.turnedCard = turnedCard;
+        this.btnTurnedCard = btnTurnedCard;
     }
 
     public Card[][] getGameBoard() {
