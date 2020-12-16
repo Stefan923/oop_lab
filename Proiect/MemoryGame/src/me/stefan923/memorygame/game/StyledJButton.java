@@ -44,4 +44,8 @@ public class StyledJButton extends BasicButtonUI {
         g.fillRoundRect(0, yOffset, size.width, size.height + yOffset - 5, 10, 10);
     }
 
+    public JButton getButton() {
+        return button;
+    }
+
 }
