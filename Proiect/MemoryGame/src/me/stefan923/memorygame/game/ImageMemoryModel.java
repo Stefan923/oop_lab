@@ -96,4 +96,13 @@ public class ImageMemoryModel {
         this.score += score;
     }
 
+    public void reset() {
+        score = 0;
+        gameBoard = null;
+        turnedCard = null;
+        btnTurnedCard = null;
+
+        generateBoard();
+    }
+
 }
