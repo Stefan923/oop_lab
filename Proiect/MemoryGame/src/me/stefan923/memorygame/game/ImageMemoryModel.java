@@ -31,7 +31,8 @@ public class ImageMemoryModel {
             int id = getRandomNumber(1, 24);
             if (cards.stream().noneMatch(card -> card.getId() == id)) {
                 try {
-                    ImageIcon buttonIcon = new ImageIcon(ImageIO.read(getClass().getResource("/" + id + ".png")));
+                    ImageIcon buttonIcon = new ImageIcon(ImageIO.read(getClass().getResource("/" + id + ".png"))
+                                                            .getScaledInstance(64, 64, java.awt.Image.SCALE_SMOOTH));
                     cards.add(new Card(id, buttonIcon));
                     cards.add(new Card(id, buttonIcon));
                 } catch (IOException e) {
