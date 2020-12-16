@@ -12,12 +12,22 @@ public class ImageMemoryModel {
 
     private int score = 0;
 
-    private int size;
+    private final int size;
+    private int cntTurnedCards;
     private Card[][] gameBoard;
+
+    public static ImageIcon INITIAL_BTN_ICON;
 
     public ImageMemoryModel(int size) {
         this.size = size;
         generateBoard();
+
+        try {
+            INITIAL_BTN_ICON = new ImageIcon(ImageIO.read(getClass().getResource("/initial_btn_icon.png"))
+                    .getScaledInstance(64, 64, java.awt.Image.SCALE_SMOOTH));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void generateBoard() {
@@ -29,7 +39,7 @@ public class ImageMemoryModel {
             int id = getRandomNumber(1, 24);
             if (cards.stream().noneMatch(card -> card.getId() == id)) {
                 try {
-                    ImageIcon buttonIcon = new ImageIcon(ImageIO.read(getClass().getResource("/" + id + ".png"))
+                    ImageIcon buttonIcon = new ImageIcon(ImageIO.read(getClass().getResource("/cards/" + id + ".png"))
                                                             .getScaledInstance(64, 64, java.awt.Image.SCALE_SMOOTH));
                     cards.add(new Card(id, buttonIcon));
                     cards.add(new Card(id, buttonIcon));
@@ -55,6 +65,14 @@ public class ImageMemoryModel {
 
     public int getSize() {
         return size;
+    }
+
+    public int getCntTurnedCards() {
+        return cntTurnedCards;
+    }
+
+    public void setCntTurnedCards(int cntTurnedCards) {
+        this.cntTurnedCards = cntTurnedCards;
     }
 
     public Card[][] getGameBoard() {
