@@ -2,6 +2,8 @@ package me.stefan923.memorygame.game;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
+import java.util.HashMap;
 
 public class ImageMemoryView extends JFrame {
 
@@ -10,6 +12,7 @@ public class ImageMemoryView extends JFrame {
     JTextField fieldScore = new JTextField(10);
 
     JButton btnRetry = new StyledJButton("Retry").getButton();
+    HashMap<String, JButton> btnCards = new HashMap<>();
 
     public ImageMemoryView(ImageMemoryModel model) {
         this.model = model;
@@ -48,12 +51,26 @@ public class ImageMemoryView extends JFrame {
         for (int i = 0; i < gameBoard.length; ++i) {
             for (int j = 0; j < gameBoard[i].length; ++j) {
                 JButton button = new JButton(gameBoard[i][j].getImageIcon());
+
                 button.setContentAreaFilled(false);
+                button.setActionCommand(i + "|" + j);
+                btnCards.put(i + "|" + j, button);
+
                 boardPanel.add(button);
             }
         }
 
         return boardPanel;
+    }
+
+    public HashMap<String, JButton> getBtnCards() {
+        return btnCards;
+    }
+
+    public void addCardsListener(ActionListener actionListener) {
+        for (JButton jButton : btnCards.values()) {
+            jButton.addActionListener(actionListener);
+        }
     }
 
 }
