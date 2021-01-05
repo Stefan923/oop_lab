@@ -9,15 +9,14 @@ import java.util.HashMap;
 
 public class ImageMemoryView extends JFrame {
 
-    ImageMemoryModel model;
+    private final ImageMemoryModel model;
 
-    JTextField fieldScore = new JTextField(10);
+    private final JTextField fieldScore = new JTextField(10);
 
-    JButton btnRetry = new StyledJButton("Retry").getButton();
-    HashMap<String, JButton> btnCards = new HashMap<>();
+    private final JButton btnRetry = new StyledJButton("Retry").getButton();
+    private final HashMap<String, JButton> btnCards = new HashMap<>();
 
-    JPanel panelBoard;
-    JPanel content;
+    private JPanel panelBoard;
 
     public ImageMemoryView(ImageMemoryModel model) {
         this.model = model;
@@ -37,7 +36,7 @@ public class ImageMemoryView extends JFrame {
 
         loadBoardGame();
 
-        content = new JPanel();
+        JPanel content = new JPanel();
         content.setLayout(new FlowLayout());
         content.add(panelBoard);
         content.add(rightPanel);
@@ -45,6 +44,9 @@ public class ImageMemoryView extends JFrame {
         this.setContentPane(content);
         this.pack();
 
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dimension.width / 2 - this.getSize().width / 2,
+                dimension.height / 2 - this.getSize().height / 2);
         this.setTitle("Memory Game");
     }
 
