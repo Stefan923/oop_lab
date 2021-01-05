@@ -5,12 +5,10 @@ import java.awt.event.ActionListener;
 
 public class HomePageController {
 
-    private HomePageModel model;
-    private HomePageView view;
+    private final HomePageModel model;
 
     public HomePageController(HomePageModel model, HomePageView view) {
         this.model = model;
-        this.view = view;
 
         view.addEasyBtnListener(new LevelSelectListener(4));
         view.addMediumBtnListener(new LevelSelectListener(6));
