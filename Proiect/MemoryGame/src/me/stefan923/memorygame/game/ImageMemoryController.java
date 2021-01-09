@@ -4,11 +4,22 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Game window's controller
+ *
+ * @author Popescu Stefan
+ */
 public class ImageMemoryController {
 
     private final ImageMemoryModel model;
     private final ImageMemoryView view;
 
+    /**
+     * ImageMemoryController's constructor
+     *
+     * @param model of game window
+     * @param view of game window
+     */
     public ImageMemoryController(ImageMemoryModel model, ImageMemoryView view) {
         this.model = model;
         this.view = view;
@@ -21,8 +32,13 @@ public class ImageMemoryController {
 
         private boolean wait = false;
 
-        public void actionPerformed(ActionEvent e) {
-            String command = e.getActionCommand();
+        /**
+         * This method is being called on ActionEvent
+         *
+         * @param event - action event for JButton (switch cards)
+         */
+        public void actionPerformed(ActionEvent event) {
+            String command = event.getActionCommand();
             String[] indexes = command.split("\\|");
 
             int i = Integer.parseInt(indexes[0]);
@@ -63,6 +79,12 @@ public class ImageMemoryController {
             }
         }
 
+        /**
+         * Automatically switches the cards back after 1 second (if they don't match)
+         *
+         * @param btnCard1 - first switched card
+         * @param btnCard2 - second switched card
+         */
         private void revertChanges(JButton btnCard1, JButton btnCard2) {
             wait = true;
             new Thread(() -> {
@@ -82,7 +104,12 @@ public class ImageMemoryController {
 
     class ResetListener implements ActionListener {
 
-        public void actionPerformed(ActionEvent e) {
+        /**
+         * This method is being called on ActionEvent - resets the game
+         *
+         * @param event - action event for JButton (retry button)
+         */
+        public void actionPerformed(ActionEvent event) {
             model.reset();
             view.reset();
 

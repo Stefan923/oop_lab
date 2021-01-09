@@ -8,6 +8,11 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 
+/**
+ * Game window's view
+ *
+ * @author Popescu Stefan
+ */
 public class ImageMemoryView extends JFrame {
 
     private final ImageMemoryModel model;
@@ -19,6 +24,11 @@ public class ImageMemoryView extends JFrame {
 
     private JPanel panelBoard;
 
+    /**
+     * ImageMemoryView's constructor
+     *
+     * @param model of game window
+     */
     public ImageMemoryView(ImageMemoryModel model) {
         this.model = model;
 
@@ -41,6 +51,11 @@ public class ImageMemoryView extends JFrame {
         this.setTitle("Memory Game");
     }
 
+    /**
+     * Returns the retry button and score text field panel
+     *
+     * @return score and retry button panel
+     */
     private JPanel getButtonsPanel() {
         JPanel fieldScorePanel = new JPanel(new FlowLayout());
         fieldScorePanel.add(fieldScore);
@@ -61,6 +76,9 @@ public class ImageMemoryView extends JFrame {
         return buttonsPanel;
     }
 
+    /**
+     * Loads the game board - creates JButtons for each card
+     */
     private void loadBoardGame() {
         Card[][] gameBoard = model.getGameBoard();
 
@@ -82,24 +100,47 @@ public class ImageMemoryView extends JFrame {
         }
     }
 
+    /**
+     * Sets the score text field
+     *
+     * @param score - player's current score
+     */
     public void setFieldScore(int score) {
         fieldScore.setText(String.valueOf(score));
     }
 
+    /**
+     * Returns a hashmap with all buttons and an unique key for each button
+     *
+     * @return buttons hashmap
+     */
     public HashMap<String, JButton> getBtnCards() {
         return btnCards;
     }
 
+    /**
+     * Adds an action listener for buttons of each card
+     *
+     * @param actionListener
+     */
     public void addCardsListener(ActionListener actionListener) {
         for (JButton jButton : btnCards.values()) {
             jButton.addActionListener(actionListener);
         }
     }
 
+    /**
+     * Adds an action listener for btnRetry variable
+     *
+     * @param actionListener
+     */
     public void addResetListener(ActionListener actionListener) {
         btnRetry.addActionListener(actionListener);
     }
 
+    /**
+     * Resets all view fields
+     */
     public void reset() {
         setFieldScore(model.getScore());
         getBtnCards().clear();

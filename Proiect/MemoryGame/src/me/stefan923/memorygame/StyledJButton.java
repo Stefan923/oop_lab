@@ -5,6 +5,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.basic.BasicButtonUI;
 import java.awt.*;
 
+/**
+ * Class for styled JButton
+ */
 public class StyledJButton extends BasicButtonUI {
 
     JButton button;
