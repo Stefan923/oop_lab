@@ -6,8 +6,8 @@ import java.awt.event.ActionListener;
 
 public class ImageMemoryController {
 
-    ImageMemoryModel model;
-    ImageMemoryView view;
+    private final ImageMemoryModel model;
+    private final ImageMemoryView view;
 
     public ImageMemoryController(ImageMemoryModel model, ImageMemoryView view) {
         this.model = model;
