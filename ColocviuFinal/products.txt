@@ -1,0 +1,6 @@
+5
+Lapte, 30
+Cirese, 75
+Paine, 2.5
+Iaurt, 7.4
+Masline, 20
